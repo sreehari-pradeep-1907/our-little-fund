@@ -6,6 +6,54 @@ import { Heart, ArrowRight, Sparkles, Shield, Users, Target } from 'lucide-react
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 
+const features = [
+  {
+    title: 'Shared Savings',
+    description: 'Track your combined savings with beautiful progress visualizations. See how every contribution brings you closer to your goals.',
+    icon: Target,
+  },
+  {
+    title: 'Monthly Reminders',
+    description: 'Two automatic reminders each month - beginning and end. Never miss a savings day with push notifications.',
+    icon: Users,
+  },
+  {
+    title: 'UPI Payments',
+    description: 'Scan your QR code directly from the app. Record contributions instantly after making payments.',
+    icon: Shield,
+  },
+  {
+    title: 'Savings Goals',
+    description: 'Create multiple goals for different dreams - travel, home, emergencies, and more. Track each one separately.',
+    icon: Target,
+  },
+  {
+    title: 'Analytics',
+    description: 'Beautiful charts showing your savings journey. Monthly trends, contribution breakdowns, and streak tracking.',
+    icon: Shield,
+  },
+  {
+    title: 'Private & Secure',
+    description: 'Your data stays yours. Supabase authentication, row-level security, and encrypted storage.',
+    icon: Shield,
+  },
+]
+
+const steps = [
+  {
+    title: 'Create your fund',
+    description: 'Set up your shared workspace, invite your partner, and set your savings target.',
+  },
+  {
+    title: 'Set reminders',
+    description: 'Configure your two monthly savings days. We will remind you both automatically.',
+  },
+  {
+    title: 'Save together',
+    description: 'Make contributions, track progress, and celebrate milestones on your journey.',
+  },
+]
+
 export default function HomePage() {
   return (
     <div className="min-h-screen bg-cream">
@@ -225,55 +273,8 @@ export default function HomePage() {
               </a>
             </div>
           </div>
-        </div      </footer>
+        </div>
+      </footer>
     </div>
   )
 }
-
-const features = [
-  {
-    title: 'Shared Savings',
-    description: 'Track your combined savings with beautiful progress visualizations. See how every contribution brings you closer to your goals.',
-    icon: Target,
-  },
-  {
-    title: 'Monthly Reminders',
-    description: 'Two automatic reminders each month - beginning and end. Never miss a savings day with push notifications.',
-    icon: Users,
-  },
-  {
-    title: 'UPI Payments',
-    description: 'Scan your QR code directly from the app. Record contributions instantly after making payments.',
-    icon: Shield,
-  },
-  {
-    title: 'Savings Goals',
-    description: 'Create multiple goals for different dreams - travel, home, emergencies, and more. Track each one separately.',
-    icon: Target,
-  },
-  {
-    title: 'Analytics',
-    description: 'Beautiful charts showing your savings journey. Monthly trends, contribution breakdowns, and streak tracking.',
-    icon: Shield,
-  },
-  {
-    title: 'Private & Secure',
-    description: 'Your data stays yours. Supabase authentication, row-level security, and encrypted storage.',
-    icon: Shield,
-  },
-]
-
-const steps = [
-  {
-    title: 'Create your fund',
-    description: 'Set up your shared workspace, invite your partner, and set your savings target.',
-  },
-  {
-    title: 'Set reminders',
-    description: 'Configure your two monthly savings days. We will remind you both automatically.',
-  },
-  {
-    title: 'Save together',
-    description: 'Make contributions, track progress, and celebrate milestones on your journey.',
-  },
-]
