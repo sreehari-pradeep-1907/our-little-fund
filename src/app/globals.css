@@ -1,0 +1,218 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 250 250 245;
+    --foreground: 41 39 43;
+    --card: 250 248 245;
+    --card-foreground: 41 39 43;
+    --popover: 250 248 245;
+    --popover-foreground: 41 39 43;
+    --primary: 201 135 152;
+    --primary-foreground: 255 255 255;
+    --secondary: 244 229 232;
+    --secondary-foreground: 41 39 43;
+    --muted: 244 229 232;
+    --muted-foreground: 107 104 111;
+    --accent: 234 229 245;
+    --accent-foreground: 41 39 43;
+    --destructive: 201 135 152;
+    --destructive-foreground: 255 255 255;
+    --border: 220 215 220;
+    --input: 220 215 220;
+    --ring: 201 135 152;
+    --radius: 1rem;
+  }
+
+  .dark {
+    --background: 41 39 43;
+    --foreground: 250 248 245;
+    --card: 58 56 62;
+    --card-foreground: 250 248 245;
+    --popover: 58 56 62;
+    --popover-foreground: 250 248 245;
+    --primary: 217 165 178;
+    --primary-foreground: 41 39 43;
+    --secondary: 58 56 62;
+    --secondary-foreground: 250 248 245;
+    --muted: 58 56 62;
+    --muted-foreground: 163 160 166;
+    --accent: 58 56 62;
+    --accent-foreground: 250 248 245;
+    --destructive: 217 165 178;
+    --destructive-foreground: 41 39 43;
+    --border: 74 72 78;
+    --input: 74 72 78;
+    --ring: 217 165 178;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-charcoal/10;
+  }
+  
+  body {
+    @apply bg-cream text-charcoal;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  ::selection {
+    @apply bg-rose/30 text-charcoal;
+  }
+
+  ::-webkit-scrollbar {
+    @apply w-2 h-2;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-charcoal/20 rounded-full hover:bg-charcoal/30;
+  }
+
+  ::-webkit-scrollbar-corner {
+    @apply bg-transparent;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .animate-in {
+    animation: animateIn 0.3s ease-out;
+  }
+
+  .animate-out {
+    animation: animateOut 0.2s ease-in;
+  }
+
+  @keyframes animateIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes animateOut {
+    from {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    to {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-rose to-lavender bg-clip-text text-transparent;
+  }
+
+  .glass {
+    @apply bg-cream/80 backdrop-blur-lg border border-blush/50;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-elevated hover:-translate-y-1;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-xl bg-charcoal px-4 py-2.5 text-sm font-medium text-cream transition-all duration-200 hover:bg-charcoal/90 focus:outline-none focus:ring-2 focus:ring-rose focus:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center rounded-xl bg-blush px-4 py-2.5 text-sm font-medium text-charcoal transition-all duration-200 hover:bg-blush/80 focus:outline-none focus:ring-2 focus:ring-rose focus:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center rounded-xl px-4 py-2.5 text-sm font-medium text-charcoal/60 transition-all duration-200 hover:bg-blush/50 hover:text-charcoal focus:outline-none focus:ring-2 focus:ring-rose focus:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none;
+  }
+
+  .input-field {
+    @apply w-full rounded-xl border border-charcoal/20 bg-cream px-4 py-2.5 text-sm text-charcoal placeholder:text-charcoal/40 transition-all duration-200 focus:border-rose focus:ring-2 focus:ring-rose/20 focus:outline-none disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  .card {
+    @apply rounded-2xl bg-cream border border-blush/50 shadow-card transition-all duration-300;
+  }
+
+  .page-container {
+    @apply mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8;
+  }
+
+  .section-title {
+    @apply text-2xl font-display font-semibold text-charcoal;
+  }
+
+  .section-subtitle {
+    @apply mt-1 text-sm text-charcoal/60;
+  }
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Focus visible */
+.focus-visible:focus {
+  @apply outline-none ring-2 ring-rose ring-offset-2 ring-offset-cream;
+}
+
+/* Loading skeleton */
+.skeleton {
+  @apply animate-pulse bg-charcoal/10 rounded;
+}
+
+/* Page transitions */
+.page-enter {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.page-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.page-exit {
+  opacity: 1;
+}
+
+.page-exit-active {
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 300ms, transform 300ms;
+}
