@@ -1,5 +1,6 @@
 'use client'
 
+import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { Heart, Mail, UserPlus, Lock, ArrowRight, Eye, EyeOff, Sparkles } from 'lucide-react'
@@ -55,7 +56,6 @@ export default function LoginContent() {
         transition={{ duration: 0.5 }}
         className="w-full max-w-md"
       >
-        {/* Logo */}
         <motion.div
           initial={{ scale: 0, rotate: -180 }}
           animate={{ scale: 1, rotate: 0 }}
@@ -65,7 +65,6 @@ export default function LoginContent() {
           <Heart className="h-9 w-9 text-cream" />
         </motion.div>
 
-        {/* Title */}
         <div className="text-center mb-8">
           <motion.h1
             initial={{ opacity: 0, y: 10 }}
@@ -87,7 +86,6 @@ export default function LoginContent() {
           </motion.p>
         </div>
 
-        {/* Form Card */}
         <Card className="border-blush/50">
           <CardHeader className="text-center pb-4">
             <CardTitle className="text-xl">Magic Link Sign In</CardTitle>
@@ -120,7 +118,6 @@ export default function LoginContent() {
               </Button>
             </form>
 
-            {/* Demo Mode */}
             <div className="relative my-6">
               <div className="absolute inset-0 flex items-center">
                 <span className="w-full border-t border-blush/50" />
@@ -140,7 +137,6 @@ export default function LoginContent() {
               Try Demo Mode
             </Button>
 
-            {/* Switch Mode */}
             <motion.p
               key={mode}
               initial={{ opacity: 0, y: -10 }}
@@ -173,7 +169,6 @@ export default function LoginContent() {
           </CardContent>
         </Card>
 
-        {/* Features hint */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -186,5 +181,3 @@ export default function LoginContent() {
     </div>
   )
 }
-
-import { useState } from 'react'
