@@ -1,8 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { Suspense } from 'react'
-import { useRouter } from 'next/navigation'
+import { useRouter, useSearchParams } from 'next/navigation'
 import { Heart, Mail, ArrowRight, Sparkles } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -11,15 +10,8 @@ import { toast } from '@/hooks/use-toast'
 import { signInWithEmail } from '@/lib/actions/auth'
 
 export default function LoginPage() {
-  return (
-    <Suspense fallback={<div className="min-h-screen bg-cream flex items-center justify-center"><div className="text-charcoal/50">Loading...</div></Suspense}>
-      <LoginContent />
-    </Suspense>
-  )
-}
-
-function LoginContent() {
   const router = useRouter()
+  const searchParams = useSearchParams()
   const [email, setEmail] = useState('')
   const [loading, setLoading] = useState(false)
 
@@ -38,6 +30,8 @@ function LoginContent() {
       toast({ title: 'Check your email', description: 'Magic link sent!', variant: 'success' })
     }
   }
+
+  const mode = searchParams.get('mode') || 'signin'
 
   return (
     <div className="min-h-screen bg-cream flex items-center justify-center py-12 px-4">
@@ -74,4 +68,8 @@ function LoginContent() {
       </Card>
     </div>
   )
+}
+
+function handleSubmit(e: React.FormEvent) {
+  e.preventDefault()
 }
